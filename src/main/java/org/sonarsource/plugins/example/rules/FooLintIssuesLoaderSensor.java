@@ -20,6 +20,7 @@
 package org.sonarsource.plugins.example.rules;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -192,14 +193,7 @@ public class FooLintIssuesLoaderSensor implements Sensor {
   private class FooLintAnalysisResultsParser {
 
     public List<ErrorDataFromExternalLinter> parse(final File file) throws XMLStreamException {
-      LOGGER.info("Parsing file {}", file.getAbsolutePath());
-
-      // as the goal of this example is not to demonstrate how to parse an xml file we return an hard coded list of FooError
-
-      ErrorDataFromExternalLinter fooError1 = new ErrorDataFromExternalLinter("ExampleRule1", "More precise description of the error", "src/MyClass.foo", 5);
-      ErrorDataFromExternalLinter fooError2 = new ErrorDataFromExternalLinter("ExampleRule2", "More precise description of the error", "src/MyClass.foo", 9);
-
-      return Arrays.asList(fooError1, fooError2);
+      return new ArrayList<ErrorDataFromExternalLinter>();
     }
   }
 
