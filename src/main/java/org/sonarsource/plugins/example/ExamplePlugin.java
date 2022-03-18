@@ -20,7 +20,6 @@
 package org.sonarsource.plugins.example;
 
 import org.sonar.api.Plugin;
-import org.sonar.api.config.PropertyDefinition;
 import org.sonarsource.plugins.example.hooks.PostJobInScanner;
 import org.sonarsource.plugins.example.hooks.DisplayQualityGateStatus;
 import org.sonarsource.plugins.example.languages.FooLanguage;
@@ -34,11 +33,6 @@ import org.sonarsource.plugins.example.rules.FooLintIssuesLoaderSensor;
 import org.sonarsource.plugins.example.rules.FooLintRulesDefinition;
 import org.sonarsource.plugins.example.rules.JavaRulesDefinition;
 import org.sonarsource.plugins.example.settings.FooLanguageProperties;
-import org.sonarsource.plugins.example.settings.HelloWorldProperties;
-import org.sonarsource.plugins.example.settings.SayHelloFromScanner;
-import org.sonarsource.plugins.example.web.MyPluginPageDefinition;
-
-import static java.util.Arrays.asList;
 
 /**
  * This class is the entry point for all extensions. It is referenced in pom.xml.
@@ -62,13 +56,5 @@ public class ExamplePlugin implements Plugin {
     // tutorial on rules
     context.addExtensions(JavaRulesDefinition.class, CreateIssuesOnJavaFilesSensor.class);
     context.addExtensions(FooLintRulesDefinition.class, FooLintIssuesLoaderSensor.class);
-
-    // tutorial on settings
-    context
-      .addExtensions(HelloWorldProperties.getProperties())
-      .addExtension(SayHelloFromScanner.class);
-
-    // tutorial on web extensions
-    context.addExtension(MyPluginPageDefinition.class);
   }
 }

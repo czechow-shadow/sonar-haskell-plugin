@@ -28,6 +28,7 @@ import org.sonar.api.utils.log.Loggers;
  * Administration > Projects > Background Tasks).
  * A real use-case would be to send an email or to notify an IRC channel.
  */
+// FIXME: PCZ: we probably want this one...
 public class DisplayQualityGateStatus implements PostProjectAnalysisTask {
   @Override
   public void finished(ProjectAnalysis analysis) {

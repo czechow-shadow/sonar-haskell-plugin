@@ -25,6 +25,7 @@ import org.sonar.api.batch.postjob.PostJobDescriptor;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 
+// FIXME: PCZ: This is probably safe to remove :-)
 public class PostJobInScanner implements PostJob {
 
   private static final Logger LOGGER = Loggers.get(PostJobInScanner.class);
