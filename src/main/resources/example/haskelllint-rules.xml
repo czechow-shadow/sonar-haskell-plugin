@@ -1,9 +1,9 @@
-<foolint-rules>
+<haskelllint-rules>
 	<rule>
 		<key>ExampleRule1</key>
 		<name>Example Rule 1</name>
 		<internalKey>ExampleRule1</internalKey>
-		<description>This is an example of rule defined thru the XML.
+		<description>This is an example of rule defined through the XML.
 		</description>
 		<severity>BLOCKER</severity>
 		<cardinality>SINGLE</cardinality>
@@ -17,7 +17,7 @@
 		<key>ExampleRule2</key>
 		<name>Example Rule 2</name>
 		<internalKey>ExampleRule2</internalKey>
-		<description>This is a other example of rule defined thru the XML.
+		<description>This is another example of rule defined through the XML.
 		</description>
 		<severity>MAJOR</severity>
 		<cardinality>SINGLE</cardinality>
@@ -32,7 +32,7 @@
 		<key>ExampleRule3</key>
 		<name>Example Rule 3</name> <!-- max size is 200 -->
 		<internalKey>ExampleRule3</internalKey>
-		<description>This is a other example of rule defined thru the XML.
+		<description>This is another example of rule defined through the XML.
 		</description>
 		<severity>CRITICAL</severity>
 		<cardinality>SINGLE</cardinality>
@@ -43,4 +43,4 @@
 	    <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
 	    <remediationFunctionBaseEffort>30min</remediationFunctionBaseEffort>		
 	</rule>
-</foolint-rules>
+</haskelllint-rules>

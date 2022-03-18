@@ -17,32 +17,28 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonarsource.plugins.example;
+package org.sonarsource.plugins.haskell;
 
 import org.sonar.api.Plugin;
-import org.sonarsource.plugins.example.hooks.DisplayQualityGateStatus;
-import org.sonarsource.plugins.example.languages.FooLanguage;
-import org.sonarsource.plugins.example.languages.FooQualityProfile;
-import org.sonarsource.plugins.example.rules.FooLintIssuesLoaderSensor;
-import org.sonarsource.plugins.example.rules.FooLintRulesDefinition;
-import org.sonarsource.plugins.example.settings.FooLanguageProperties;
+import org.sonarsource.plugins.haskell.languages.HaskellLanguage;
+import org.sonarsource.plugins.haskell.languages.HaskellQualityProfile;
+import org.sonarsource.plugins.haskell.rules.HaskellLintIssuesLoaderSensor;
+import org.sonarsource.plugins.haskell.rules.HaskellLintRulesDefinition;
+import org.sonarsource.plugins.haskell.settings.HaskellLanguageProperties;
 
 /**
  * This class is the entry point for all extensions. It is referenced in pom.xml.
  */
-public class ExamplePlugin implements Plugin {
+public class HaskellPlugin implements Plugin {
 
   @Override
   public void define(Context context) {
-    // tutorial on hooks
-    // http://docs.sonarqube.org/display/DEV/Adding+Hooks
-    context.addExtension(DisplayQualityGateStatus.class);
 
     // tutorial on languages
-    context.addExtensions(FooLanguage.class, FooQualityProfile.class);
-    context.addExtensions(FooLanguageProperties.getProperties());
+    context.addExtensions(HaskellLanguage.class, HaskellQualityProfile.class);
+    context.addExtensions(HaskellLanguageProperties.getProperties());
 
     // tutorial on rules
-    context.addExtensions(FooLintRulesDefinition.class, FooLintIssuesLoaderSensor.class);
+    context.addExtensions(HaskellLintRulesDefinition.class, HaskellLintIssuesLoaderSensor.class);
   }
 }

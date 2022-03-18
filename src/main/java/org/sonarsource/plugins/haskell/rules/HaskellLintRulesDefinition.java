@@ -17,23 +17,23 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonarsource.plugins.example.rules;
+package org.sonarsource.plugins.haskell.rules;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.server.rule.RulesDefinitionXmlLoader;
-import org.sonarsource.plugins.example.languages.FooLanguage;
+import org.sonarsource.plugins.haskell.languages.HaskellLanguage;
 
-public final class FooLintRulesDefinition implements RulesDefinition {
+public final class HaskellLintRulesDefinition implements RulesDefinition {
 
-  private static final String PATH_TO_RULES_XML = "/example/foolint-rules.xml";
+  private static final String PATH_TO_RULES_XML = "/example/haskelllint-rules.xml";
 
-  protected static final String KEY = "foolint";
-  protected static final String NAME = "FooLint";
+  protected static final String KEY = "haskelllint";
+  protected static final String NAME = "HaskellLint";
 
-  public static final String REPO_KEY = FooLanguage.KEY + "-" + KEY;
-  protected static final String REPO_NAME = FooLanguage.KEY + "-" + NAME;
+  public static final String REPO_KEY = HaskellLanguage.KEY + "-" + KEY;
+  protected static final String REPO_NAME = HaskellLanguage.KEY + "-" + NAME;
 
   protected String rulesDefinitionFilePath() {
     return PATH_TO_RULES_XML;
@@ -53,7 +53,7 @@ public final class FooLintRulesDefinition implements RulesDefinition {
 
   @Override
   public void define(Context context) {
-    defineRulesForLanguage(context, REPO_KEY, REPO_NAME, FooLanguage.KEY);
+    defineRulesForLanguage(context, REPO_KEY, REPO_NAME, HaskellLanguage.KEY);
   }
 
 }

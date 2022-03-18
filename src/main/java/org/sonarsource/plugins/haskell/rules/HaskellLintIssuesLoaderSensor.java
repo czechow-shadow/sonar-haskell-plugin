@@ -17,11 +17,10 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonarsource.plugins.example.rules;
+package org.sonarsource.plugins.haskell.rules;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import javax.xml.stream.XMLStreamException;
@@ -36,18 +35,18 @@ import org.sonar.api.config.Configuration;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
-import org.sonarsource.plugins.example.languages.FooLanguage;
+import org.sonarsource.plugins.haskell.languages.HaskellLanguage;
 
 /**
- * The goal of this Sensor is to load the results of an analysis performed by a fictive external tool named: FooLint
+ * The goal of this Sensor is to load the results of an analysis performed by an external tool
  * Results are provided as an xml file and are corresponding to the rules defined in 'rules.xml'.
- * To be very abstract, these rules are applied on source files made with the fictive language Foo.
+ * These rules are applied on source files made with language Haskell.
  */
-public class FooLintIssuesLoaderSensor implements Sensor {
+public class HaskellLintIssuesLoaderSensor implements Sensor {
 
-  private static final Logger LOGGER = Loggers.get(FooLintIssuesLoaderSensor.class);
+  private static final Logger LOGGER = Loggers.get(HaskellLintIssuesLoaderSensor.class);
 
-  protected static final String REPORT_PATH_KEY = "sonar.foolint.reportPath";
+  protected static final String REPORT_PATH_KEY = "sonar.haskell.reportPath";
 
   protected final Configuration config;
   protected final FileSystem fileSystem;
@@ -56,15 +55,15 @@ public class FooLintIssuesLoaderSensor implements Sensor {
   /**
    * Use of IoC to get Settings, FileSystem, RuleFinder and ResourcePerspectives
    */
-  public FooLintIssuesLoaderSensor(final Configuration config, final FileSystem fileSystem) {
+  public HaskellLintIssuesLoaderSensor(final Configuration config, final FileSystem fileSystem) {
     this.config = config;
     this.fileSystem = fileSystem;
   }
 
   @Override
   public void describe(final SensorDescriptor descriptor) {
-    descriptor.name("FooLint Issues Loader Sensor");
-    descriptor.onlyOnLanguage(FooLanguage.KEY);
+    descriptor.name("HaskellLint Issues Loader Sensor");
+    descriptor.onlyOnLanguage(HaskellLanguage.KEY);
   }
 
   protected String reportPathKey() {
@@ -88,14 +87,14 @@ public class FooLintIssuesLoaderSensor implements Sensor {
       try {
         parseAndSaveResults(analysisResultsFile);
       } catch (XMLStreamException e) {
-        throw new IllegalStateException("Unable to parse the provided FooLint file", e);
+        throw new IllegalStateException("Unable to parse the provided HaskellLint file", e);
       }
     }
   }
 
   protected void parseAndSaveResults(final File file) throws XMLStreamException {
-    LOGGER.info("(mock) Parsing 'FooLint' Analysis Results");
-    FooLintAnalysisResultsParser parser = new FooLintAnalysisResultsParser();
+    LOGGER.info("(mock) Parsing 'HaskellLint' Analysis Results"); // FIXME: PCZ: mock?
+    HaskellLintAnalysisResultsParser parser = new HaskellLintAnalysisResultsParser();
     List<ErrorDataFromExternalLinter> errors = parser.parse(file);
     for (ErrorDataFromExternalLinter error : errors) {
       getResourceAndSaveIssue(error);
@@ -137,12 +136,12 @@ public class FooLintIssuesLoaderSensor implements Sensor {
   }
 
   private static String getRepositoryKeyForLanguage(String languageKey) {
-    return languageKey.toLowerCase() + "-" + FooLintRulesDefinition.KEY;
+    return languageKey.toLowerCase() + "-" + HaskellLintRulesDefinition.KEY;
   }
 
   @Override
   public String toString() {
-    return "FooLintIssuesLoaderSensor";
+    return "HaskellLintIssuesLoaderSensor";
   }
 
   private class ErrorDataFromExternalLinter {
@@ -190,7 +189,7 @@ public class FooLintIssuesLoaderSensor implements Sensor {
     }
   }
 
-  private class FooLintAnalysisResultsParser {
+  private class HaskellLintAnalysisResultsParser {
 
     public List<ErrorDataFromExternalLinter> parse(final File file) throws XMLStreamException {
       return new ArrayList<ErrorDataFromExternalLinter>();

@@ -17,20 +17,20 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package org.sonarsource.plugins.example.languages;
+package org.sonarsource.plugins.haskell.languages;
 
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 
-import static org.sonarsource.plugins.example.rules.FooLintRulesDefinition.REPO_KEY;
+import static org.sonarsource.plugins.haskell.rules.HaskellLintRulesDefinition.REPO_KEY;
 
 /**
- * Default, BuiltIn Quality Profile for the projects having files of the language "foo"
+ * Default, BuiltIn Quality Profile for the projects having files of the language "haskell"
  */
-public final class FooQualityProfile implements BuiltInQualityProfilesDefinition {
+public final class HaskellQualityProfile implements BuiltInQualityProfilesDefinition {
 
   @Override
   public void define(Context context) {
-    NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("FooLint Rules", FooLanguage.KEY);
+    NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("HaskellLint Rules", HaskellLanguage.KEY);
     profile.setDefault(true);
 
     NewBuiltInActiveRule rule1 = profile.activateRule(REPO_KEY, "ExampleRule1");

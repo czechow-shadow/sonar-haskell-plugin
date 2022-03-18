@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.sonarsource.plugins.example</groupId>
-  <artifactId>sonar-example-plugin</artifactId>
+  <groupId>org.sonarsource.plugins.haskell</groupId>
+  <artifactId>sonar-haskell-plugin</artifactId>
   <packaging>sonar-plugin</packaging>
   <version>8.1.0</version>
 
-  <name>Example Plugin for SonarQube 8.x</name>
-  <description>Example of Plugin for SonarQube: Foo Language, FooLint, Custom Metrics and MeasureComputers</description>
+  <name>Haskell Plugin for SonarQube 8.9.6</name>
+  <description>Haskell Plugin for SonarQube</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,8 +55,8 @@
         <version>1.18.0.372</version>
         <extensions>true</extensions>
         <configuration>
-          <pluginKey>example</pluginKey>
-          <pluginClass>org.sonarsource.plugins.example.ExamplePlugin</pluginClass>
+          <pluginKey>haskell</pluginKey>
+          <pluginClass>org.sonarsource.plugins.haskell.HaskellPlugin</pluginClass>
         </configuration>
       </plugin>
       <plugin>
