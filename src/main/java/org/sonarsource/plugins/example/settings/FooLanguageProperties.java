@@ -28,7 +28,7 @@ import static java.util.Arrays.asList;
 public class FooLanguageProperties {
 
   public static final String FILE_SUFFIXES_KEY = "sonar.foo.file.suffixes";
-  public static final String FILE_SUFFIXES_DEFAULT_VALUE = ".foo";
+  public static final String FILE_SUFFIXES_DEFAULT_VALUE = ".hs"; // FIXME: PCZ already here...
 
   private FooLanguageProperties() {
     // only statics
