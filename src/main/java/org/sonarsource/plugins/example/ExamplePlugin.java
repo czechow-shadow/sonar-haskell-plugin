@@ -20,7 +20,6 @@
 package org.sonarsource.plugins.example;
 
 import org.sonar.api.Plugin;
-import org.sonarsource.plugins.example.hooks.PostJobInScanner;
 import org.sonarsource.plugins.example.hooks.DisplayQualityGateStatus;
 import org.sonarsource.plugins.example.languages.FooLanguage;
 import org.sonarsource.plugins.example.languages.FooQualityProfile;
